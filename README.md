@@ -72,7 +72,7 @@ Se trata de una aplicación web para gestionar una agencia de viajes ficticia, i
 
 - 🧑‍💻 [Juan Antonio Bonhome Borrell](https://github.com/bonhomee) – GitMaster
 - 🧑‍💼 [Eugenia Kostiukovskaia Essitachvili](https://github.com/lilalini) – Project Manager
-- 🎨 [Miguel Carrascal Hubmann](https://github.com/karras1979) – Maquetador
+- 🎨 [Miguel Carrascal Hubmann](https://github.com/karras1979) – Maquetador & CEO
 
 ---
 
