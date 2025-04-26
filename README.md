@@ -70,9 +70,9 @@ Se trata de una aplicación web para gestionar una agencia de viajes ficticia, i
 
 ## 👥 Equipo de desarrollo
 
-- 🧑‍💻 Juan Antonio Bonhome Borrell – GitMaster
-- 🧑‍💼 Eugenia Kostiukovskaia Essitachvili – Project Manager
-- 🎨 Miguel Carrascal Hubmann – Maquetador
+- 🧑‍💻 [Juan Antonio Bonhome Borrell](https://github.com/bonhomee) – GitMaster
+- 🧑‍💼 [Eugenia Kostiukovskaia Essitachvili](https://github.com/lilalini) – Project Manager
+- 🎨 [Miguel Carrascal Hubmann](https://github.com/karras1979) – Maquetador
 
 ---
 
