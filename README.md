@@ -89,4 +89,4 @@ Se trata de una aplicación web para gestionar una agencia de viajes ficticia, i
 
 ## 📎 Documentación útil
 
-- 📘 [Guía de trabajo para desarrolladores](documentacion/Entornos%20de%20Desarollo/Guias%20Git/guia_trabajo_desarrollador.md)
+- 📘 [Guía de trabajo para desarrolladores](documentacion/Entornos%20de%20Desarollo/Guias%20Git/Guia_Trabajo_Desarrollador.md)

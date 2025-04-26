@@ -24,8 +24,6 @@ Git Flow te dice qué ramas crear, cuándo crear ramas, qué nombres usar, y có
 - `release/*` → Preparar una nueva versión
 - `hotfix/*` → Corregir errores en producción
 
-![Modelo Git Flow](/img/gitflow.png)
-
 ---
 
 ## 2. ⚙️ Configuración inicial de Git Bash
