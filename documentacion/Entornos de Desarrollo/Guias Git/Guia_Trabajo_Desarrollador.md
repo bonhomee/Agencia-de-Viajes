@@ -108,7 +108,7 @@ git commit -m "feat: añadir formulario de inscripción"
 git push
 ```
 
-🔄 Si es la primera vez que subes esta rama, Git la enlazará automáticamente (gracias a la configuración inicial).
+🔄 Si es la primera vez que subes esta rama, Git la enlazará automáticamente a Git Hub (gracias a la configuración inicial).
 
 ---
 
@@ -124,9 +124,9 @@ Cuando hayas terminado tu tarea:
 
 ## ⛔ Qué **no debes hacer**
 
-- No trabajar directamente en `develop` ni `main`.
-- No ejecutar `version.sh` (esto lo hace solo el Git Master).
-- No hacer merges por tu cuenta si no eres el Git Master.
+- No trabajar directamente en `develop` ni `master`.
+- **No ejecutar `version.sh` (esto lo hace solo el Git Master).**
+- **No hacer merges por tu cuenta si no eres el Git Master.**
 
 ---
 
@@ -139,7 +139,7 @@ Cuando hayas terminado tu tarea:
 
 ---
 
-## ⚙️ Flujo de trabajo del Git Master
+## 4. ⚙️ Flujo de trabajo del Git Master
 
 1. Revisar Pull Request en GitHub.
 2. Aceptar y hacer merge a `develop` si todo está bien.
@@ -170,7 +170,7 @@ Cuando hayas terminado tu tarea:
 
 ---
 
-# 📝 Resumen rápido
+## 5. 📝 Resumen rápido
 
 | Acción                              | Quién lo hace          |
 |:------------------------------------|:-----------------------|
