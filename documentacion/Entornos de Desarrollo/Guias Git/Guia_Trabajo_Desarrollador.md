@@ -4,7 +4,31 @@ Esta guía está pensada para los desarrolladores del equipo, y describe paso a 
 
 ---
 
-## 1. ⚙️ Configuración inicial de Git Bash
+## 1. 🧠 ¿Qué es Git Flow?
+
+Git Flow es una metodología de trabajo en Git que define cómo organizar las ramas y cómo trabajar en equipo para que:
+
+El desarrollo sea ordenado.
+
+El código siempre esté estable.
+
+Cada funcionalidad, corrección o versión tenga su propio espacio.
+
+Git Flow te dice qué ramas crear, cuándo crear ramas, qué nombres usar, y cómo fusionarlas (mergearlas).
+
+### 🔀 Ramas principales
+
+- `main` → Rama de producción (estable)
+- `develop` → Desarrollo principal
+- `feature/*` → Nuevas funcionalidades
+- `release/*` → Preparar una nueva versión
+- `hotfix/*` → Corregir errores en producción
+
+![Modelo Git Flow](/img/gitflow.png)
+
+---
+
+## 2. ⚙️ Configuración inicial de Git Bash
 
 Antes de comenzar, asegúrate de tener Git configurado correctamente.
 
@@ -29,7 +53,7 @@ git config --list
 
 ---
 
-## 2. 🚀 Flujo de trabajo de un desarrollador en Git Flow
+## 3. 🚀 Flujo de trabajo de un desarrollador en Git Flow
 
 ### 🌀 Antes de empezar: actualiza tu repositorio local
 
@@ -114,6 +138,51 @@ Cuando hayas terminado tu tarea:
 - Escribe mensajes de commit claros.
 - Usa ramas bien nombradas (`feature/formulario-contacto`, `feature/listar-usuarios`, etc).
 - Siempre haz `pull` antes de empezar a trabajar para evitar conflictos.
+
+---
+
+## ⚙️ Flujo de trabajo del Git Master
+
+1. Revisar Pull Request en GitHub.
+2. Aceptar y hacer merge a `develop` si todo está bien.
+3. Ejecutar:
+
+```bash
+./version.sh
+```
+
+(Solo cuando es necesario versionar cambios importantes.)
+
+4. Cuando corresponda:
+    - Crear rama `release/`
+    - O fusionar `develop` → `main` para publicación.
+
+---
+
+# 👑 Responsabilidades del Git Master
+
+- Revisar Pull Requests:
+  - Verificar que los commits están bien (convención correcta).
+  - Verificar que el código respeta las buenas prácticas del proyecto.
+- Hacer el **merge** de las `feature/*` hacia `develop`.
+- Ejecutar **`version.sh`** después de integrar cambios importantes:
+  - Para generar un nuevo tag.
+  - Para actualizar el `CHANGELOG.md`.
+- Fusionar `develop` en `main` al lanzar una versión final o estable.
+
+---
+
+# 📝 Resumen rápido
+
+| Acción                              | Quién lo hace          |
+|:------------------------------------|:-----------------------|
+| Trabajar en `feature/`              | Desarrolladores        |
+| Hacer commits siguiendo convención  | Desarrolladores        |
+| Subir ramas `feature/` a GitHub     | Desarrolladores        |
+| Crear Pull Requests                 | Desarrolladores        |
+| Revisar y hacer merge               | Git Master             |
+| Ejecutar `version.sh`               | Git Master             |
+| Mantener `develop` y `main` limpias | Git Master             |
 
 ---
 
