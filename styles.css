@@ -1,0 +1,366 @@
+body {
+  font-family: "Encode Sans", sans-serif;
+  color: #5b5f62;
+  background-color: #faf8ed;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2% 5% 4% 5%;
+}
+
+.header {
+  width: 100%;
+  display: inline-block;
+  background-color: #faf8ed;
+}
+
+.logo {
+  margin-right: 10px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.nav {
+  display: inline-block;
+  margin-left: 0;
+}     
+
+.nav > ul > li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #5b5f62;
+  font-weight: 500;
+}
+
+.boton-menu {
+  float: right;
+  padding: 10px 30px;
+  border: 2px solid #f66f4d;
+  background: transparent;
+  color: #f66f4d;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.boton-menu:hover {
+  background-color: #ffd482;
+  color: #ffffff;
+}
+
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "DM Sans", sans-serif;
+  margin-top: 25%;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  font-size: 4.5rem;
+  line-height: 1.0;
+  color: #2d3134;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.0;
+  color: #2d3134;
+}
+
+h3 {
+  font-weight: 700;
+  color: #2d3134;
+}
+
+p,
+a,
+li {
+  font-weight: 300;
+  color: #5b5f62;
+}
+
+.hero .hero-text {
+  width: 40%;
+  float: left;
+  color: #5b5f62;
+  margin-right: 10%;
+  margin-top: 20px;
+}
+
+.hero .hero-image {
+  width: 40%;
+  float: left;
+  position: relative;
+  border-radius: 50%;
+  margin-left: 5%;
+}
+
+.hero .hero-image .map-icon {
+  position: absolute;
+  top: 5%;
+  left: 7%;
+  width: 50px;
+}
+
+.hero .hero-image .globo-icon {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 70px;
+}
+
+.destinations h2 {
+  width: 30%;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 50px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.card-container {
+  overflow: hidden;
+  max-width: 1200px;
+  text-align: left;
+}
+
+.card {
+  display: inline-block;
+  width: 30%;
+  margin: 0 5px;
+  vertical-align: top;
+  background-color: #faf8ed;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  text-align: left;
+  min-height: 350px;
+}
+
+.card:first-child {
+  margin-left: 0;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+  max-width: 1200px;
+  border-radius: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.boton-card {
+  padding: 8px 20px;
+  border: 2px solid #2d3134;
+  background: transparent;
+  color: #2d3134;
+  border-radius: 25px;
+  font-size: 14px;
+  text-decoration: none;
+  float: right;
+  margin-top: 10px;
+}
+
+.boton-card:hover {
+  background-color: #2e476b;
+  color: #ffffff;
+}
+
+.boton-izquierda {
+  float: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.newsletter {
+  background-image: url("img/bg-newsletter.jpg");
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 50px 20px;
+  height: 300px;
+  border-radius: 30px;
+  margin-top: 100px;
+}
+
+.newsletter input {
+  margin-top: 50px;
+  padding: 20px;
+  width: 450px;
+  border: none;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 40px;
+}
+
+.footer p {
+  font-size: 18px;
+  color: #5b5f62;
+}
+
+.social-icons a {
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+}
+
+.social-icons img {
+  width: 20px;
+  height: auto;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid #2d3134;
+  padding: 5px;
+}
+
+.social-icons a:visited img {
+  border: 2px solid #f66f4d;
+}
+
+
+/* Estilos para el menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #faf8ed;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 10px;
+  top: 100%;
+  left: 0;
+  border: 1px solid #e0e0e0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #5b5f62;
+  font-weight: 500;
+}
+
+.dropdown-content li a:hover {
+  background-color: #ffd482;
+  color: #2d3134;
+  border-radius: 8px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .dropdown > a::after {
+    content: " ▼";
+    font-size: 0.7em;
+  }
+}
+
+.card {
+  background-color: #faf8ed;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  text-align: left;
+  min-height: 350px;
+}
+
+.card h3 {
+  margin-bottom: 5px;
+}
+
+.card p {
+  margin-bottom: 10px;
+}
+
+.card .boton-card {
+  padding: 8px 20px;
+  border: 2px solid #2d3134;
+  background: transparent;
+  color: #2d3134;
+  border-radius: 25px;
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 10px; /* Espacio entre los botones */
+}
+
+.card .boton-card:hover {
+  background-color: #f66f4d;
+  color: white;
+}
+
+.card .botones-container {
+  display: flex;
+  justify-content: flex-end; /* Alineamos los botones a la derecha */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form input[type="submit"] {
+  width: auto;
+  background-color: #2d3134;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #f66f4d;
+}
+
