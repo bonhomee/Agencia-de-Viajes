@@ -84,20 +84,7 @@ Cada vez que completes una parte del trabajo:
 
 ```bash
 git add .
-git commit -m "prefijo: descripción del cambio"
-```
-
-#### Prefijos válidos:
-
-| Prefijo | Uso |
-|--------|-----|
-| `feat:` | Nueva funcionalidad |
-| `fix:`  | Corrección de errores |
-| `BREAKING CHANGE:` | Cambio que rompe compatibilidad |
-
-Ejemplo:
-```bash
-git commit -m "feat: añadir formulario de inscripción"
+git commit -m "descripción del cambio"
 ```
 
 ---
@@ -125,7 +112,6 @@ Cuando hayas terminado tu tarea:
 ## ⛔ Qué **no debes hacer**
 
 - No trabajar directamente en `develop` ni `master`.
-- **No ejecutar `version.sh` (esto lo hace solo el Git Master).**
 - **No hacer merges por tu cuenta si no eres el Git Master.**
 
 ---
@@ -145,9 +131,6 @@ Cuando hayas terminado tu tarea:
 2. Aceptar y hacer merge a `develop` si todo está bien.
 3. Ejecutar:
 
-```bash
-./version.sh
-```
 
 (Solo cuando es necesario versionar cambios importantes.)
 
@@ -163,25 +146,7 @@ Cuando hayas terminado tu tarea:
   - Verificar que los commits están bien (convención correcta).
   - Verificar que el código respeta las buenas prácticas del proyecto.
 - Hacer el **merge** de las `feature/*` hacia `develop`.
-- Ejecutar **`version.sh`** después de integrar cambios importantes:
-  - Para generar un nuevo tag.
-  - Para actualizar el `CHANGELOG.md`.
 - Fusionar `develop` en `main` al lanzar una versión final o estable.
 
----
-
-## 5. 📝 Resumen rápido
-
-| Acción                              | Quién lo hace          |
-|:------------------------------------|:-----------------------|
-| Trabajar en `feature/`              | Desarrolladores        |
-| Hacer commits siguiendo convención  | Desarrolladores        |
-| Subir ramas `feature/` a GitHub     | Desarrolladores        |
-| Crear Pull Requests                 | Desarrolladores        |
-| Revisar y hacer merge               | Git Master             |
-| Ejecutar `version.sh`               | Git Master             |
-| Mantener `develop` y `main` limpias | Git Master             |
-
----
 
 Con este flujo de trabajo el equipo mantiene un desarrollo limpio, ordenado y profesional 💼🚀

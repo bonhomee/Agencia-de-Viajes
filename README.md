@@ -21,7 +21,6 @@ Se trata de una aplicación web para gestionar una agencia de viajes ficticia, i
 - 🎨 **Lenguajes de Marcas** → Uso de HTML y CSS para construir una interfaz visual atractiva y accesible.
 - 🔧 **Programación** → Implementación en PHP utilizando PDO para conectar y gestionar la base de datos.
 - 🔁 **Entornos de Desarrollo** → Uso de Git y GitHub para el control de versiones del proyecto (flujo **Git Flow**).
-- 🖥️ **Sistemas Informáticos** → Desarrollo de un script en Bash que gestiona de forma automática el versionado del proyecto.
 - 📅 **Proyecto Intermodular** → Planificación de tareas y entregables con ProjectLibre.
 
 ---
@@ -50,7 +49,6 @@ Se trata de una aplicación web para gestionar una agencia de viajes ficticia, i
 │          └── Miguel
 ├── home.php
 ├── styles.css
-├── CHANGELOG.md
 └── README.md
 ```
 
@@ -82,7 +80,6 @@ Se trata de una aplicación web para gestionar una agencia de viajes ficticia, i
 - PHP (con PDO)
 - PostgreSQL
 - Git & GitHub (Git Flow)
-- Bash
 - ProjectLibre
 
 ---
