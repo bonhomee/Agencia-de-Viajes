@@ -65,12 +65,6 @@
             <p>Grand Canyon, Arizona.</p>
             <a href="#" class="boton-card">Book Now</a>
           </div>
-          <div class="card">
-            <img src="img/noticia1.jpg" alt="Benidorm" class="card-img" />
-            <h3>Mountain Benidorm Tour</h3>
-            <p>Mountain Benidorm Tour.</p>
-            <a href="#" class="boton-card">Book Now</a>
-          </div>
         </div>
       </section>
 
