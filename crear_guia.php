@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexión
-include('db.php');
+include('database.php');
 
 // Incluir header
 include('header.php');
