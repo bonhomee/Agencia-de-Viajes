@@ -15,7 +15,7 @@
         <img src="img/logo.png" alt="Logo DAW" class="logo" />
         <nav class="nav">
           <ul>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="home.php">Home</a></li>
             <li><a href="inscripcion.php">Formulario</a></li>
             <li><a href="crear_destino.php">Crear Destino</a></li>
             <li><a href="crear_guia.php">Crear Guía</a></li>

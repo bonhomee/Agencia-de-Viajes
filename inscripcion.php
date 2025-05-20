@@ -1,33 +1,5 @@
 <?php
-require_once 'db.php';
-
-$mensaje = "";
-$destinos = [];
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Recuperar el ID del destino y usuario del formulario
-    $id_usuario = $_POST['id_usuario'];
-    $id_destino = $_POST['id_destino'];
-
-    // Comprobar si el usuario tiene pasaporte
-    $stmt = $conn->prepare("SELECT id_usuario FROM pasaporte WHERE id_usuario = ?");
-    $stmt->execute([$id_usuario]);
-    $pasaporte = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($pasaporte) {
-        // Si tiene pasaporte, permitir inscripción al destino
-        $stmt2 = $conn->prepare("INSERT INTO Usuarios_Destinos (id_usuario, id_destino) VALUES (?, ?)");
-        $stmt2->execute([$id_usuario, $id_destino]);
-        $mensaje = "Te has inscrito al destino con éxito.";
-    } else {
-        $mensaje = "No puedes inscribirte en este destino porque no tienes pasaporte.";
-    }
-}
-
-// Recuperar todos los destinos disponibles
-$stmt3 = $conn->query("SELECT * FROM destino");
-$destinos = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-
+require_once 'database.php';
 ?>
 
 <!DOCTYPE html>
@@ -38,41 +10,40 @@ $destinos = $stmt3->fetchAll(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <?php include 'header.php'; ?>
 
-  <div class="container">
-    <h2>Formulario de Inscripción</h2>
-    
-    <?php if ($mensaje): ?>
-      <p style="color: <?php echo $mensaje === "Te has inscrito al destino con éxito." ? 'green' : 'red'; ?>;"><?php echo $mensaje; ?></p>
-    <?php endif; ?>
-    
-    <form method="POST" action="">
-      <label for="id_usuario">Selecciona tu Usuario:</label><br>
-      <select name="id_usuario" id="id_usuario" required>
-        <?php
-        // Mostrar los usuarios disponibles
-        $stmt4 = $conn->query("SELECT id_usuario, nombre, apellidos FROM Usuarios");
-        while ($usuario = $stmt4->fetch(PDO::FETCH_ASSOC)) {
-            echo "<option value='{$usuario['id_usuario']}'>{$usuario['nombre']} {$usuario['apellidos']}</option>";
-        }
-        ?>
-      </select><br><br>
+<?php include 'header.php'; ?>
 
-      <label for="id_destino">Selecciona tu Destino:</label><br>
-      <select name="id_destino" id="id_destino" required>
-        <?php
-        // Mostrar los destinos disponibles
-        foreach ($destinos as $destino) {
-            echo "<option value='{$destino['id_destino']}'>{$destino['ciudad']}, {$destino['pais']}</option>";
-        }
-        ?>
-      </select><br><br>
+<div class="container">
+  <h2>Formulario de Inscripción</h2>
 
-      <input type="submit" value="Inscribirse" class="boton-card">
-    </form>
-  </div>
+  <form method="post" action="procesar_inscripcion.php">
 
-  <?php include 'footer.php'; ?>
+    <label for="id_usuario">Selecciona tu Usuario:</label><br>
+    <select name="id_usuario" required>
+      <option value="">Selecciona un usuario</option>
+      <?php
+      try {
+          $stmt = $conn->query("SELECT id_usuario, nombre, apellidos FROM usuario");
+
+          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              $id = htmlspecialchars($row['id_usuario']);
+              $nombre = htmlspecialchars($row['nombre']);
+              $apellidos = htmlspecialchars($row['apellidos']);
+              echo "<option value=\"$id\">$nombre $apellidos</option>";
+          }
+      } catch (PDOException $e) {
+          echo "<option disabled>Error cargando usuarios</option>";
+      }
+      ?>
+    </select><br><br>
+
+    <!-- Aquí podrías añadir más campos según lo que vaya a inscribirse el usuario -->
+
+    <input type="submit" value="Inscribirse">
+  </form>
+</div>
+
+<?php include 'footer.php'; ?>
+
 </body>
 </html>

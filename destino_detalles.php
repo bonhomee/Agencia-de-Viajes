@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'database.php';
 
 // Obtener el destino desde la base de datos
 if (isset($_GET['id'])) {

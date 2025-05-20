@@ -1,14 +1,14 @@
 <?php
-require_once 'db.php';
+require_once 'database.php';
 
 // Verificar que el ID esté presente en la URL
 if (isset($_GET['id'])) {
     $id_usuario = $_GET['id'];
 
     // Obtener los detalles del usuario
-    $stmt = $conn->prepare("SELECT * FROM Usuario WHERE id = ?");
+    $stmt = $conn->prepare("SELECT * FROM usuario WHERE id_usuario = ?");
     $stmt->execute([$id_usuario]);
-    $usuario = $stmt->fetch();
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$usuario) {
         echo "Usuario no encontrado.";
@@ -16,9 +16,9 @@ if (isset($_GET['id'])) {
     }
 
     // Obtener los detalles del pasaporte (si existe)
-    $stmt_pasaporte = $conn->prepare("SELECT * FROM Pasaporte WHERE usuario_id = ?");
+    $stmt_pasaporte = $conn->prepare("SELECT * FROM pasaporte WHERE id_usuario = ?");
     $stmt_pasaporte->execute([$id_usuario]);
-    $pasaporte = $stmt_pasaporte->fetch();
+    $pasaporte = $stmt_pasaporte->fetch(PDO::FETCH_ASSOC);
 } else {
     echo "ID de usuario no especificado.";
     exit;
@@ -40,11 +40,13 @@ if (isset($_GET['id'])) {
     <h2>Modificar Usuario</h2>
     
     <form method="post" action="guardar_modificaciones.php">
+      <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($id_usuario); ?>">
+
       <label for="nombre">Nombre:</label>
       <input type="text" name="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>" required>
 
-      <label for="apellido">Apellido:</label>
-      <input type="text" name="apellido" value="<?php echo htmlspecialchars($usuario['apellido']); ?>" required>
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" name="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" required>
 
       <label for="email">Email:</label>
       <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
@@ -59,16 +61,20 @@ if (isset($_GET['id'])) {
 
         <label for="fecha_expiracion">Fecha de Expiración:</label>
         <input type="date" name="fecha_expiracion" value="<?php echo htmlspecialchars($pasaporte['fecha_expiracion']); ?>" required>
-      <?php else: ?>
+      
+        <?php else: ?>
+
         <h3>Agregar Pasaporte</h3>
+
         <label for="numero_pasaporte">Número de Pasaporte:</label>
-        <input type="text" name="numero_pasaporte" required>
+        <input type="text" name="numero">
 
-        <label for="fecha_emision">Fecha de Emisión:</label>
-        <input type="date" name="fecha_emision" required>
+        <label for="pais_exp">Pais Expedicion:</label>
+        <input type="text" name="pais_exp">
 
-        <label for="fecha_expiracion">Fecha de Expiración:</label>
-        <input type="date" name="fecha_expiracion" required>
+        <label for="fecha_emision">Fecha de validez:</label>
+        <input type="date" name="fecha_validez">
+
       <?php endif; ?>
 
       <button type="submit" class="boton-card">Guardar Cambios</button>

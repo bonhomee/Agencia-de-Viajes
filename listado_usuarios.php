@@ -1,5 +1,5 @@
   <?php
-  require_once 'db.php';
+  require_once 'database.php';
 
   // Obtener los usuarios desde la base de datos
   $stmt = $conn->query("SELECT * FROM Usuario");

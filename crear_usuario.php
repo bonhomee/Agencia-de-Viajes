@@ -6,10 +6,11 @@ $mensaje = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         // Insertar usuario
-        $stmt = $conn->prepare("INSERT INTO usuario (nombre, apellido, edad, email) VALUES (?, ?, ?, ?) RETURNING id_usuario");
+        $stmt = $conn->prepare("INSERT INTO usuario (nombre, apellidos, dni, edad, email) VALUES (?, ?, ?, ?, ?) RETURNING id_usuario");
         $stmt->execute([
             $_POST['nombre'],
             $_POST['apellidos'],
+            $_POST['dni'],
             $_POST['edad'],
             $_POST['email']
         ]);
@@ -19,12 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Si se marca que quiere crear pasaporte
         if (isset($_POST['crear_pasaporte'])) {
-            $stmt2 = $conn->prepare("INSERT INTO pasaporte (numero, pais_expedicion, id_usuario) VALUES (?, ?, ?)");
-            $stmt2->execute([
+            $stmt = $conn->prepare("INSERT INTO pasaporte (numero, pais_exp, fecha_validez, id_usuario) VALUES (?, ?, ?,)");
+            $stmt->execute([
                 $_POST['numero'],
-                $_POST['pais_expedicion'],
+                $_POST['pais_exp'],
+                $_POST['fecha_validez'],
                 $id_usuario
-            ]);
+]);
+
         }
 
         $mensaje = "Usuario creado correctamente.";
@@ -56,6 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <label>Apellidos:</label><br>
     <input type="text" name="apellidos" required><br><br>
+
+    <label>DNI:</label><br>
+    <input type="text" name="dni" required><br><br>
 
     <label>Edad:</label><br>
     <input type="number" name="edad" min="18" required><br><br>
