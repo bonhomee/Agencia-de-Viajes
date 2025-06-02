@@ -20,19 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Si se marca que quiere crear pasaporte
         if (isset($_POST['crear_pasaporte'])) {
-            $stmt = $conn->prepare("INSERT INTO pasaporte (numero, pais_exp, fecha_validez, id_usuario) VALUES (?, ?, ?,)");
+            $stmt = $conn->prepare("INSERT INTO pasaporte (numero, pais_exp, fecha_validez, id_usuario) VALUES (?, ?, ?, ?)");
             $stmt->execute([
                 $_POST['numero'],
-                $_POST['pais_exp'],
+                $_POST['pais_expedicion'],
                 $_POST['fecha_validez'],
                 $id_usuario
-]);
-
+            ]);
         }
 
-        $mensaje = "Usuario creado correctamente.";
+        $mensaje = "✅ Usuario creado correctamente.";
     } catch (PDOException $e) {
-        $mensaje = "Error: " . $e->getMessage();
+        $mensaje = "❌ Error: " . $e->getMessage();
     }
 }
 ?>
@@ -48,12 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="container">
 <?php include 'header.php'; ?>
   <h2>Crear Usuario</h2>
+
   <?php if ($mensaje): ?>
-    <p style="color: green;"><?php echo $mensaje; ?></p>
+    <p style="color: <?= str_starts_with($mensaje, '✅') ? 'green' : 'red' ?>;"><?php echo $mensaje; ?></p>
   <?php endif; ?>
+
   <form method="post" action="">
 
- 
     <label>Nombre:</label><br>
     <input type="text" name="nombre" required><br><br>
 
@@ -79,12 +79,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       <label>País de Expedición:</label><br>
       <input type="text" name="pais_expedicion"><br><br>
+
+      <label>Fecha de Validez:</label><br>
+      <input type="date" name="fecha_validez"><br><br>
     </div>
 
-    <input type="submit" class="boton-card boton-izquierda" value="Aceptar">
+    <input type="submit" class="boton-accion" value="Aceptar">
 
   </form>
-  <?php include 'footer.php'; ?>
+
+<?php include 'footer.php'; ?>
 </div>
 
 <script>
