@@ -1,13 +1,20 @@
+<?php
+require_once 'database.php';
+
+$stmt = $conn->query("SELECT * FROM destino LIMIT 3 ");
+$destinos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAM 1 TRAWEL WEB</title>
+    <title>Agencia de Viajes</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Encode+Sans+Expanded:wght@400;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -19,14 +26,12 @@
             <li><a href="inscripcion.php">Formulario</a></li>
             <li><a href="crear_destino.php">Crear Destino</a></li>
             <li><a href="crear_guia.php">Crear Guía</a></li>
-
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">Listados</a>
               <ul class="dropdown-content">
                 <li><a href="listado_destinos.php">Listado de destinos</a></li>
                 <li><a href="listado_usuarios.php">Listado de usuarios</a></li>
                 <li><a href="listado_guias.php">Listado de guías</a></li>
-
               </ul>
             </li>
           </ul>
@@ -48,32 +53,27 @@
 
       <section class="destinations">
         <h2>Find Popular Destination</h2>
+
         <div class="cards-container">
-          <div class="card">
-            <img src="img/noticia1.jpg" alt="Mountain" class="card-img" />
-            <h3>Mountain Hiking Tour</h3>
-            <p>Mountain Hiking Tour.</p>
-            <a href="#" class="boton-card">Book Now</a>
-          </div>
-          <div class="card">
-            <img src="img/noticia2.jpg" alt="Machu Picchu" class="card-img" />
-            <h3>Machu Picchu, Peru</h3>
-            <p>Machu Picchu, Peru.</p>
-            <a href="#" class="boton-card">Book Now</a>
-          </div>
-          <div class="card">
-            <img src="img/noticia3.jpg" alt="Grand Canyon" class="card-img" />
-            <h3>Grand Canyon, Arizona</h3>
-            <p>Grand Canyon, Arizona.</p>
-            <a href="#" class="boton-card">Book Now</a>
-          </div>
+          <?php if (count($destinos) > 0): ?>
+            <?php foreach ($destinos as $destino): ?>
+              <div class="card">
+                <img src="img/default.jpg" alt="Destino" class="card-img" />
+                <h3><?= htmlspecialchars($destino['ciudad']) ?>, <?= htmlspecialchars($destino['pais']) ?></h3>
+                <p><?= $destino['requiere_pasaporte'] ? 'Requiere Pasaporte' : 'No requiere pasaporte' ?></p>
+                <a href="destino_detalles.php?id=<?= $destino['id_destino'] ?>" class="boton-card">Ver Detalles</a>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>No hay destinos disponibles por el momento.</p>
+          <?php endif; ?>
         </div>
       </section>
 
       <section class="newsletter">
         <h2>Sign up to our newsletter</h2>
-        <p>Receiv latest news, update, and many other things every week.</p>
-        <input type="email" placeholder="Enter Your email address" />
+        <p>Recibe noticias, novedades y más cosas cada semana.</p>
+        <input type="email" placeholder="Introduce tu correo electrónico" />
       </section>
     </div>
    
