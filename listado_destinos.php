@@ -41,6 +41,8 @@ $destinos = $stmt->fetchAll();
             </td>
             <td>
               <a href="destino_detalles.php?id=<?php echo $destino['id_destino']; ?>" class="boton-modificar">Ver Detalles</a>
+              <a href="eliminar_destino.php?id=<?= $destino['id_destino'] ?>" class="boton-eliminar" onclick="return confirm('¿Estás seguro de eliminar este destino?')">Eliminar</a>
+
             </td>
           </tr>
         <?php endforeach; ?>
