@@ -34,54 +34,54 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 
+<div class="container">
   <?php include 'header.php'; ?>
 
-  <div class="container">
-    <h2>Modificar Usuario</h2>
-    
-    <form method="post" action="guardar_modificaciones.php">
-      <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($id_usuario); ?>">
+  <h2>Modificar Usuario</h2>
+  
+  <form method="post" action="guardar_modificaciones.php">
+    <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($id_usuario); ?>">
 
-      <label for="nombre">Nombre:</label>
-      <input type="text" name="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>" required>
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>" required>
 
-      <label for="apellidos">Apellidos:</label>
-      <input type="text" name="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" required>
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" name="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" required>
 
-      <label for="email">Email:</label>
-      <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
+    <label for="email">Email:</label>
+    <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
 
-      <?php if ($pasaporte): ?>
-        <h3>Pasaporte</h3>
-        <label for="numero_pasaporte">Número de Pasaporte:</label>
-        <input type="text" name="numero_pasaporte" value="<?php echo htmlspecialchars($pasaporte['numero']); ?>" required>
+    <?php if ($pasaporte): ?>
+      <h3>Pasaporte</h3>
 
-        <label for="fecha_emision">Fecha de Emisión:</label>
-        <input type="date" name="fecha_emision" value="<?php echo htmlspecialchars($pasaporte['fecha_emision']); ?>" required>
+      <label for="numero_pasaporte">Número de Pasaporte:</label>
+      <input type="text" name="numero_pasaporte" value="<?php echo htmlspecialchars($pasaporte['numero']); ?>" required>
 
-        <label for="fecha_expiracion">Fecha de Expiración:</label>
-        <input type="date" name="fecha_expiracion" value="<?php echo htmlspecialchars($pasaporte['fecha_expiracion']); ?>" required>
-      
-        <?php else: ?>
+      <label for="pais_exp">País de Expedición:</label>
+      <input type="text" name="pais_exp" value="<?php echo htmlspecialchars($pasaporte['pais_exp']); ?>" required>
 
-        <h3>Agregar Pasaporte</h3>
+      <label for="fecha_validez">Fecha de Validez:</label>
+      <input type="date" name="fecha_validez" value="<?php echo htmlspecialchars($pasaporte['fecha_validez']); ?>" required>
 
-        <label for="numero_pasaporte">Número de Pasaporte:</label>
-        <input type="text" name="numero">
+    <?php else: ?>
+      <h3>Agregar Pasaporte</h3>
 
-        <label for="pais_exp">Pais Expedicion:</label>
-        <input type="text" name="pais_exp">
+      <label for="numero_pasaporte">Número de Pasaporte:</label>
+      <input type="text" name="numero_pasaporte" required>
 
-        <label for="fecha_emision">Fecha de validez:</label>
-        <input type="date" name="fecha_validez">
+      <label for="pais_exp">País de Expedición:</label>
+      <input type="text" name="pais_exp" required>
 
-      <?php endif; ?>
+      <label for="fecha_validez">Fecha de Validez:</label>
+      <input type="date" name="fecha_validez" required>
 
-      <button type="submit" class="boton-card">Guardar Cambios</button>
-    </form>
-  </div>
+    <?php endif; ?>
 
-  <?php include 'footer.php'; ?>
+    <button type="submit" class="boton-card">Guardar Cambios</button>
+  </form>
+</div>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
