@@ -27,11 +27,11 @@ $guias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<?php include 'header.php'; ?>
 
 <div class="container">
+  <?php include 'header.php'; ?>
+
   <h2 style="display:inline-block;">Listado de Guías</h2>
-  <a href="home.php" class="btn-volver">Volver</a>
 
   <table class="tabla-usuarios">
     <tr>
@@ -49,8 +49,8 @@ $guias = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <td><?php echo htmlspecialchars($guia['ciudad_destino']) . ", " . htmlspecialchars($guia['pais_destino']); ?></td>
         <td>
           <!-- Puedes añadir acciones como editar o eliminar si las necesitas -->
-          <a href="modificar_guia.php?id=<?php echo $guia['id_guia']; ?>" class="boton-modificar">Modificar</a>
-          <a href="eliminar_guia.php?id=<?php echo $guia['id_guia']; ?>" class="boton-eliminar">Eliminar</a>
+          <a href="modificar_guia.php?id=<?= $guia['id_guia'] ?>" class="boton-modificar">Modificar</a>
+          <a href="eliminar_guia.php?id=<?= $guia['id_guia'] ?>" class="boton-eliminar">Eliminar</a>
         </td>
       </tr>
     <?php endforeach; ?>

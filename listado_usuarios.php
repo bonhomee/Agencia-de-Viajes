@@ -15,12 +15,10 @@ $usuarios = $stmt->fetchAll();
 </head>
 <body>
 
-  <?php include 'header.php'; ?>
-
   <div class="container">
-    <h2 style="display:inline-block;">Listado de Usuarios</h2>
-    <a href="home.php" class="btn-volver">Volver</a>
+    <?php include 'header.php'; ?>
 
+    <h2 style="display:inline-block;">Listado de Usuarios</h2>
     <table class="tabla-usuarios">
       <tr>
         <th>Nombre</th>

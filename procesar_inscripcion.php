@@ -11,9 +11,9 @@ require_once 'database.php';
 </head>
 <body>
 
-<?php require_once 'header.php'; ?>
-
 <div class="container">
+    <?php require_once 'header.php'; ?>
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_usuario = $_POST['id_usuario'] ?? null;
@@ -32,16 +32,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<h2 class='error'>❌ No puedes inscribirte: necesitas tener un pasaporte.</h2>";
             echo "<a href='inscripcion.php' class='btn-volver'>Volver al formulario</a>";
         } else {
-            $insert = $conn->prepare("INSERT INTO usuario_destino (id_usuario, id_destino) VALUES (:id_usuario, :id_destino)");
-            $insert->bindParam(':id_usuario', $id_usuario);
-            $insert->bindParam(':id_destino', $id_destino);
+            // Verificar si ya existe esa inscripción
+            $check = $conn->prepare("SELECT * FROM usuario_destino WHERE id_usuario = :id_usuario AND id_destino = :id_destino");
+            $check->bindParam(':id_usuario', $id_usuario);
+            $check->bindParam(':id_destino', $id_destino);
+            $check->execute();
 
-            if ($insert->execute()) {
-                echo "<h2 class='exito'>✅ ¡Inscripción realizada con éxito!</h2>";
+            if ($check->rowCount() > 0) {
+                echo "<h2 class='error'>⚠️ Ya estás inscrito en este destino.</h2>";
             } else {
-                echo "<h2 class='error'>❌ Error: puede que ya estés inscrito en este destino.</h2>";
+                // Insertar la inscripción
+                $insert = $conn->prepare("INSERT INTO usuario_destino (id_usuario, id_destino) VALUES (:id_usuario, :id_destino)");
+                $insert->bindParam(':id_usuario', $id_usuario);
+                $insert->bindParam(':id_destino', $id_destino);
+
+                if ($insert->execute()) {
+                    echo "<h2 class='exito'>✅ ¡Inscripción realizada con éxito!</h2>";
+                } else {
+                    echo "<h2 class='error'>❌ Error inesperado al inscribirte.</h2>";
+                }
             }
-            echo "<a href='home.php' class='btn-volver'>Volver al inicio</a>";
+
         }
     }
 }

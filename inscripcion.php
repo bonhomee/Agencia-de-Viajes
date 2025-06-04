@@ -11,9 +11,10 @@ require_once 'database.php';
 </head>
 <body>
 
-<?php include 'header.php'; ?>
 
 <div class="container">
+  <?php include 'header.php'; ?>
+
   <h2>Formulario de Inscripción</h2>
 
   <form method="post" action="procesar_inscripcion.php">

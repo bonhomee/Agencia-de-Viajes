@@ -1,6 +1,5 @@
 <?php
 require_once 'database.php';
-include('header.php');
 
 $mensaje = "";
 
@@ -41,6 +40,8 @@ $especialidades = $especialidades_stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <div class="container">
+  <?php include 'header.php'; ?>
+
   <h2>Crear Guía</h2>
 
   <?= $mensaje ?>
@@ -76,7 +77,6 @@ $especialidades = $especialidades_stmt->fetchAll(PDO::FETCH_ASSOC);
     <input type="submit" class="boton-card boton-izquierda" value="Crear Guía">
   </form>
 
-  <a href="home.php" class="btn-volver">Volver</a>
 </div>
 
 <?php include('footer.php'); ?>

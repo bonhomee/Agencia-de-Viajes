@@ -23,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <?php include 'header.php'; ?>
-
   <div class="container">
+    <?php include 'header.php'; ?>
+
     <h2>Crear Nuevo Destino</h2>
 
     <?php if ($mensaje): ?>

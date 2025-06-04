@@ -25,6 +25,8 @@
               <ul class="dropdown-content">
                 <li><a href="listado_destinos.php">Listado de destinos</a></li>
                 <li><a href="listado_usuarios.php">Listado de usuarios</a></li>
+                <li><a href="listado_guias.php">Listado de guías</a></li>
+
               </ul>
             </li>
           </ul>
